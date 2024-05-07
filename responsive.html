@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ModeLIA</title>
+    <link rel="icon" href="https://img.icons8.com/material/24/video-projector--v1.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+    <header>
+        <h1 id=ModeLIA>ModeLIA</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#ModeLIA">Inicio</a></li>
+            <li><a href="#Proyecto">Proyecto</a></li>
+            <li><a href="#Contacto">Contacto</a></li>
+            <li><a href="#Relacionado">Relacionado</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section class="content-section">
+            <h2>¿Que es ModeLIA?</h2>
+            <p>ModeLIA es un proyecto basado en una inteligencia artificial por medio de chat-voz de proyección de
+                distinta variedad de imagenes, videos o gráficas, siendo que estas puedan ser manipuladas por medio de
+                interacción del usuario a la proyección.</p>
+        </section>
+
+        <section class="content-section">
+            <h2>¿Que es una IA?</h2>
+            <p>Una IA o inteligencia Artificial es una herramienta por medio de chat que nos ayuda en distintas tareas
+                por medio de preguntas u otras fases, estas mismas usan módelos mátematicos para la interpretación de la
+                información brindada por el usuario y así generar lo que es requerido.</p>
+        </section>
+
+        <div class="container">
+            <script>
+                setTimeout(function () {
+                    var loaderContainer = document.getElementById('loader-container');
+                    var content = document.getElementById('content');
+
+                    loaderContainer.style.display = 'none';
+                    content.style.display = 'block';
+                }, 5000);
+                window.addEventListener('DOMContentLoaded', (event) => {
+                    const audio = document.getElementById('audio');
+                    audio.play();
+                });
+
+                const MAX = 50;
+
+                var canvas, ctx;
+                var count = 0;
+                var points = [];
+
+                window.onload = function () {
+                    canvas = document.getElementsByTagName("canvas")[0];
+                    ctx = canvas.getContext("2d");
+                    canvas.width = canvas.height = 400;
+                    ctx.fillRect(0, 0, 400, 400);
+                    var size = 200;
+                    var r = 0;
+                    for (var a = 0; a < MAX; a++) {
+                        points.push([Math.cos(r), Math.sin(r), 0]);
+                        r += (Math.PI * 2) / MAX;
+                    }
+
+                    for (var a = 0; a < MAX; a++) {
+                        points.push([0, points[a][0], points[a][1]]);
+                    }
+
+                    for (var a = 0; a < MAX; a++) {
+                        points.push([points[a][1], 0, points[a][0]]);
+                    }
+
+                    rus();
+                };
+
+                function rus() {
+                    ctx.globalCompositeOperation = "source-over";
+                    ctx.fillStyle = "rgba(0,0,0,0.03)";
+                    ctx.fillRect(0, 0, canvas.width, canvas.height);
+                    ctx.globalCompositeOperation = "lighter";
+
+                    var tim = count / 5;
+
+                    for (var e = 0; e < 3; e++) {
+                        tim *= 1.7;
+                        var s = 1 - e / 3;
+                        a = tim / 59;
+                        var yp = Math.cos(a);
+                        var yp2 = Math.sin(a);
+                        a = tim / 23;
+                        var xp = Math.cos(a);
+                        var xp2 = Math.sin(a);
+                        var p2 = [];
+
+                        for (var a = 0; a < points.length; a++) {
+                            var x = points[a][0];
+                            var y = points[a][1];
+                            var z = points[a][2];
+
+                            var y1 = y * yp + z * yp2;
+                            var z1 = y * yp2 - z * yp;
+                            var x1 = x * xp + z1 * xp2;
+
+                            z = x * xp2 - z1 * xp;
+                            z1 = Math.pow(2, z * s);
+                            x = x1 * z1;
+                            y = y1 * z1;
+                            p2.push([x, y, z]);
+                        }
+
+                        s *= 120;
+                        for (var d = 0; d < 3; d++) {
+                            for (var a = 0; a < MAX; a++) {
+                                const b = p2[d * MAX + a];
+                                const c = p2[((a + 1) % MAX) + d * MAX];
+                                ctx.beginPath();
+                                ctx.strokeStyle = "hsla(" + (((a / MAX) * 360) | 0) + ",70%,60%,0.15)";
+                                ctx.lineWidth = Math.pow(6, b[2]);
+                                ctx.lineTo(b[0] * s + 200, b[1] * s + 200);
+                                ctx.lineTo(c[0] * s + 200, c[1] * s + 200);
+                                ctx.stroke();
+                            }
+                        }
+                    }
+                    count++;
+                    requestAnimationFrame(rus);
+                }
+            </script>
+
+            <canvas> </canvas>
+
+        </div>
+        </div>
+        </div>
+        <audio src="Y2meta.app - Her Eyes (128 kbps).mp3" type="audio/mp3" autoplay>
+
+        </audio>
+    </main>
+
+    <h1 class="doTit" id="Proyecto">Conoce a ModeLIA</h1>
+
+    <div class="Box1">
+
+        <section class="content-section2">
+            <div class="card" style="width: 18rem;" id="Proyecto">
+                <img src="https://assets.entrepreneur.com/content/3x2/2000/1691761141-artificial-intelligence-tools-0823-g1483224488copy.jpg"
+                    class="card-img-top" alt="...">
+                <div class="card-body">
+                    <p class="card-text">Sumergete al conocimiento con ModeLIA y descubre como modificar un universo de
+                        simulación.</p>
+                    <a href="">Continuar</a>
+                </div>
+            </div>
+            <div class="card" style="width: 18rem;">
+                <img src="https://republicanaradio.com/wp-content/uploads/2021/10/Caracteristicas_de_un_Ingeniero_de_sistemas_URepublicacanaRadio_emisora_radio_universitaria_estudiar_bogota_colombia_imag2.jpg"
+                    class="card-img-top" alt="...">
+                <div class="card-body">
+                    <p class="card-text">Para hacer posible a ModeLIA se usaron conocimientos en ingeniería en sistemas
+                        para la elaboración de este magnifico proyecto.</p>
+                    <a href="#">Sumergete</a>
+                </div>
+            </div>
+            <br>
+            <div class="card" style="width: 18rem;">
+                <img src="https://ce.entel.cl/wp-content/uploads/2020/10/iStock-1206796363-768x409.jpg"
+                    class="card-img-top" alt="...">
+                <div class="card-body">
+                    <p class="card-text">Acerca del creamiento de ModeLIA, se inicio como un sueño y una visualización
+                        de una oportunidad para darle una nueva visión a las IAs</p>
+                    <a href="#">Conoce sus raíces</a>
+                </div>
+            </div>
+
+        </section>
+    </div>
+    <div class="Boxs">
+
+        <div class="container">
+            <div class="sun"></div>
+            <div class="earth">
+                <div class="moon"></div>
+            </div>
+        </div>
+    </div>
+    <h1 class="doTit" id="Relacionado">Conoce a ModeLIA</h1>
+
+    <div class="Box1">
+
+        <section class="content-section2">
+            <div class="contenedor-imagen">
+                <img src="https://i0.wp.com/lagaferia.com/wp-content/uploads/2024/01/desarrollo-realidad-aumentada-inteligencia-artificial-3.webp?fit=1417%2C945&ssl=1"
+                    alt="Descripción de la imagen" class="imagen-responsiva">
+                <p class="TextoM">ModeLIA es la IA que será el paso a darle una nueva vista a las IAs, está permitirá
+                    que poder analizar gráficas, escenarios y otros modelados desde una perspectiva personal donde
+                    pueden ser modificadas de acuerdo a la necesidad del usuario.
+                    <br>
+                    <br>
+                    Esta será la manera en que al interactuar con una simulación pueda modificar un entorno virtual y
+                    poder hacer mediciones, descripciones o predicciones acerca de algo que ocurra en la realidad.
+                    <br>
+                    <br>
+                    <a href="#" class="Atexto">Prueba ModeLIA</a>
+                </p>
+            </div>
+            <div class="container1">
+                <div class="row">
+                    <div class="col-sm">
+                        <a href="#ModeLIA" class="btn btn-primary">1</a>
+                    </div>
+                    <div class="col-sm">
+                        <a href="#Proyecto" class="btn btn-primary">2</a>
+                    </div>
+                    <div class="col-sm">
+                        <a href="#Relacionado" class="btn btn-primary">3</a>
+                    </div>
+                    <div class="col-sm">
+                        <a href="#Contacto" class="btn btn-primary">4</a>
+                    </div>
+                </div>
+            </div>
+            <script>
+                const botones = document.querySelectorAll('.btn');
+
+                botones.forEach(boton => {
+                    boton.addEventListener('mouseover', () => {
+                        boton.style.display = 'block';
+                        boton.style.opacity = 1;
+                        anime({
+                            targets: boton,
+                            opacity: 1,
+                            duration: 500,
+                            easing: 'ease-in-out'
+                        });
+                    });
+
+                    boton.addEventListener('mouseout', () => {
+                        anime({
+                            targets: boton,
+                            opacity: 0,
+                            duration: 500,
+                            easing: 'ease-in-out'
+                        }).finished.then(() => {
+                            boton.style.display = 'none';
+                        });
+                    });
+                });
+            </script>
+
+        </section>
+    </div>
+    <br>
+
+    <footer>
+        <p>&copy; 2024 Proyecto Universidad Santiago de Cali</p>
+    </footer>
+</body>
+
+</html>

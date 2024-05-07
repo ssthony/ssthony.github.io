@@ -1,0 +1,408 @@
+/* Normalize styles for a better baseline */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* Body styles */
+body {
+    overflow: hidden;
+    font-size: 16px;
+    line-height: 1.6;
+    background-color: #000000;
+}
+
+/* Header styles */
+header {
+    padding: 20px;
+    background-color: #612192;
+    text-align: center;
+}
+
+p {
+    font-family: "Space Grotesk", sans-serif;
+}
+
+h2 {
+    font-family: "Orbitron", sans-serif;
+    align-self: center;
+
+}
+
+.container {
+    font-size: 10px;
+    width: 40em;
+    height: 40em;
+    position: relative;
+    overflow: hidden;
+}
+
+.sun {
+    position: absolute;
+    top: 15em;
+    left: 15em;
+    width: 10em;
+    height: 10em;
+    background-color: rgb(255, 204, 0);
+    border-radius: 50%;
+    box-shadow: 0 0 3em white;
+}
+
+.earth,
+.moon {
+    position: absolute;
+    border-style: solid;
+    border-color: white transparent;
+    border-width: 0.1em 0.1em 0 0;
+    border-radius: 50%;
+}
+
+.earth {
+    top: 5em;
+    left: 5em;
+    width: 30em;
+    height: 30em;
+    animation: rahul 36.5s linear infinite;
+}
+
+.moon {
+    top: 0;
+    right: 0;
+    width: 8em;
+    height: 8em;
+    animation: rahul 5s linear infinite;
+}
+
+.earth::before,
+.moon::before {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+}
+
+.earth::before {
+    top: 2.8em;
+    right: 2.8em;
+    width: 3em;
+    height: 3em;
+    background-color: rgb(80, 80, 201);
+}
+
+.moon::before {
+    top: 0.8em;
+    right: 0.2em;
+    width: 1.2em;
+    height: 1.2em;
+    background-color: silver;
+}
+
+@keyframes rahul {
+    to {
+        transform: rotate(360deg);
+    }
+
+}
+
+.container {
+    margin: auto auto;
+    align-content: center;
+    align-self: center;
+    align-items: center;
+}
+
+h1 {
+    font-size: 2em;
+    margin-bottom: 0.5em;
+    align-self: center;
+    font-family: "Pixelify Sans", sans-serif;
+}
+
+/* Navigation styles */
+nav {
+    background-color: #9F37EF;
+    padding: 10px 0;
+    align-content: space-between;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
+
+nav li {
+    margin: 0 10px;
+    font-family: "Pixelify Sans", sans-serif;
+}
+
+nav li a {
+    text-decoration: none;
+    color: #000000;
+    font-weight: bold;
+}
+
+nav li a:hover {
+    transition: all .3s;
+    transform: scale(0.30);
+    background-color: #2E1045;
+    color: #eee;
+}
+
+a {
+    text-decoration: none;
+    color: #000000;
+    font-weight: bold;
+}
+
+a:hover {
+    transition: all .3s;
+    transform: scale(0.30);
+    background-color: #2E1045;
+    color: #eee;
+}
+
+/* Main content styles */
+main {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+
+.Atexto {
+    color: #eee;
+    text-decoration: none;
+}
+
+.content-section {
+    flex: 1 0 40%;
+    padding: 10px;
+    background-color: #8F5A84;
+    width: 20px;
+    text-align: center;
+
+}
+
+.TextoM {
+    color: #ddd;
+    font-family: "Space Grotesk", sans-serif;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+.card-img-top {
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+    /* Ajusta la imagen para cubrir toda el área disponible */
+    border-radius: 5px;
+}
+
+.doTit {
+    text-align: center;
+    background-color: #8F5A84;
+    border-radius: 10px;
+}
+
+.card {
+    padding: 20px;
+    justify-content: center;
+    margin: auto;
+    font-size: 14px;
+    padding-left: 6px;
+    padding-top: 4px;
+    padding-right: 6px;
+    padding-bottom: 4px;
+}
+
+.Box1 {
+    margin: auto auto;
+    justify-content: center;
+    display: flex;
+}
+
+.content-section2 {
+    margin: auto auto;
+    justify-content: center;
+    flex: 1 0 40%;
+    padding: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    display: inline-flex;
+    align-content: space-between;
+}
+
+.card-body {
+    background-color: #8F5A84;
+    border-radius: 5px;
+    font-family: "Orbitron", sans-serif;
+}
+
+.sun {
+    position: absolute;
+    top: 15em;
+    left: 15em;
+    width: 10em;
+    height: 10em;
+    background-color: rgb(255, 204, 0);
+    border-radius: 50%;
+    box-shadow: 0 0 3em white;
+}
+
+.earth,
+.moon {
+    position: absolute;
+    border-style: solid;
+    border-color: white transparent;
+    border-width: 0.1em 0.1em 0 0;
+    border-radius: 50%;
+}
+
+.earth {
+    top: 5em;
+    left: 5em;
+    width: 30em;
+    height: 30em;
+    animation: rahul 36.5s linear infinite;
+}
+
+.moon {
+    top: 0;
+    right: 0;
+    width: 8em;
+    height: 8em;
+    animation: rahul 5s linear infinite;
+}
+
+.earth::before,
+.moon::before {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+}
+
+.earth::before {
+    top: 2.8em;
+    right: 2.8em;
+    width: 3em;
+    height: 3em;
+    background-color: rgb(80, 80, 201);
+}
+
+.container1 {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    background-color: #9F37EF;
+    border-radius: 20px;
+}
+
+/* Media Queries para pantallas pequeñas */
+@media (max-width: 768px) {
+    .container {
+        bottom: 10px;
+        /* Ajustar margen inferior en pantallas pequeñas */
+        right: 10px;
+        /* Ajustar margen derecho en pantallas pequeñas */
+    }
+}
+
+.row {
+    justify-content: end;
+}
+
+.btn {
+    margin-bottom: 10px;
+    background-color: #9F37EF;
+    border-radius: 20px;
+    padding: 7px;
+    padding-top: 2px;
+    transition: opacity 0.5s ease-in-out;
+
+}
+
+
+
+.btn:hover {
+    transform: scale(.8);
+}
+
+.moon::before {
+    top: 0.8em;
+    right: 0.2em;
+    width: 1.2em;
+    height: 1.2em;
+    background-color: silver;
+}
+
+@keyframes rahul {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.carouselExample {
+    display: inline-flex;
+}
+
+.contenedor-imagen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.imagen-responsiva {
+    flex: 1;
+    max-width: 60%;
+    height: auto;
+}
+
+.content-section h2 {
+    margin-bottom: 1em;
+    text-align: center;
+}
+
+.sidebar {
+    flex: 1 0 40%;
+    padding: 10px;
+    background-color: #8F5A84;
+    margin-bottom: 20px;
+}
+
+aside {
+    flex: 1 0 50%;
+    padding: 10px;
+    background-color: #9F37EF;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.sidebar h2 {
+    text-align: center;
+}
+
+/* Footer styles */
+footer {
+    padding: 10px;
+    text-align: center;
+    background-color: #ddd;
+}
+
+/* Media Queries for smaller screens */
+@media (max-width: 768px) {
+
+    /* Stack content sections on top of each other on mobile */
+    main {
+        flex-direction: column;
+    }
+
+    .content-section,
+    .sidebar {
+        width: 100%;
+    }
+}
